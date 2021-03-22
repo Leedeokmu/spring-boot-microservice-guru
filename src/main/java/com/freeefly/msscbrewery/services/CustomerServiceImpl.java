@@ -1,6 +1,6 @@
 package com.freeefly.msscbrewery.services;
 
-import com.freeefly.msscbrewery.web.module.Customer;
+import com.freeefly.msscbrewery.web.model.Customer;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 

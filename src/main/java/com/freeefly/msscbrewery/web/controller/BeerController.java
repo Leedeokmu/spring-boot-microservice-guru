@@ -1,7 +1,7 @@
 package com.freeefly.msscbrewery.web.controller;
 
 import com.freeefly.msscbrewery.services.BeerService;
-import com.freeefly.msscbrewery.web.module.BeerDto;
+import com.freeefly.msscbrewery.web.model.BeerDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
 
-@Deprecated
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/v1/beer")

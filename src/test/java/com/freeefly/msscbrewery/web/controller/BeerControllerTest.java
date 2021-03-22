@@ -2,7 +2,7 @@ package com.freeefly.msscbrewery.web.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.freeefly.msscbrewery.services.BeerService;
-import com.freeefly.msscbrewery.web.module.BeerDto;
+import com.freeefly.msscbrewery.web.model.BeerDto;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

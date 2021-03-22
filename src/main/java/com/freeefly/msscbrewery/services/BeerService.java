@@ -1,6 +1,6 @@
 package com.freeefly.msscbrewery.services;
 
-import com.freeefly.msscbrewery.web.module.BeerDto;
+import com.freeefly.msscbrewery.web.model.BeerDto;
 
 import java.util.UUID;
 

@@ -1,6 +1,6 @@
 package com.freeefly.msscbrewery.services;
 
-import com.freeefly.msscbrewery.web.module.Customer;
+import com.freeefly.msscbrewery.web.model.Customer;
 
 import java.util.UUID;
 

@@ -1,4 +1,4 @@
-package com.freeefly.msscbrewery.web.module;
+package com.freeefly.msscbrewery.web.model;
 
 
 import lombok.*;
