@@ -1,6 +1,7 @@
 package com.freeefly.msscbrewery.services;
 
-import com.freeefly.msscbrewery.web.module.BeerDto;
+import com.freeefly.msscbrewery.web.model.BeerDto;
+import com.freeefly.msscbrewery.web.model.BeerStyleEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +15,7 @@ public class BeerServiceImpl implements BeerService {
         return BeerDto.builder()
                 .id(UUID.randomUUID())
                 .beerName("Galaxy Cat")
-                .beerStyle("Pale Ale")
+                .beerStyle(BeerStyleEnum.ALE)
                 .build();
     }
 
