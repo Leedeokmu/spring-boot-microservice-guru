@@ -1,4 +1,4 @@
-package com.freeefly.msscbrewery.services;
+package com.freeefly.msscbrewery.web.services;
 
 import com.freeefly.msscbrewery.web.model.BeerDto;
 import com.freeefly.msscbrewery.web.model.BeerStyleEnum;

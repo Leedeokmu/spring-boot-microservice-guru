@@ -1,9 +1,8 @@
 package com.freeefly.msscbrewery.web.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.freeefly.msscbrewery.services.BeerService;
+import com.freeefly.msscbrewery.web.services.BeerService;
 import com.freeefly.msscbrewery.web.model.BeerDto;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -15,8 +14,6 @@ import java.util.UUID;
 
 import static org.hamcrest.Matchers.is;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.BDDMockito.given;
-import static org.mockito.BDDMockito.then;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 

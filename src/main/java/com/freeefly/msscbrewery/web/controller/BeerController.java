@@ -1,6 +1,6 @@
 package com.freeefly.msscbrewery.web.controller;
 
-import com.freeefly.msscbrewery.services.BeerService;
+import com.freeefly.msscbrewery.web.services.BeerService;
 import com.freeefly.msscbrewery.web.model.BeerDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
