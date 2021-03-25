@@ -17,14 +17,14 @@ class CustomerClientTest {
     CustomerClient customerClient;
 
     @Test
-    void getBeerById() {
+    void getCustomerById() {
         // given
         CustomerDto dto = customerClient.getCustomerById(UUID.randomUUID());
         assertNotNull(dto);
     }
 
     @Test
-    void testSaveNewBeer() {
+    void testSaveNewCustomer() {
         // given
         CustomerDto customerDto = CustomerDto.builder()
                 .name("New customer")
@@ -35,7 +35,7 @@ class CustomerClientTest {
     }
 
     @Test
-    void testUpdateBeer() {
+    void testUpdateCustomer() {
         // given
         CustomerDto customerDto = CustomerDto.builder()
                 .name("New customer")
@@ -45,7 +45,7 @@ class CustomerClientTest {
     }
 
     @Test
-    public void testDeleteBeer() {
+    public void testDeleteCustomer() {
         // given
         customerClient.deleteCustomer(UUID.randomUUID());
     }
