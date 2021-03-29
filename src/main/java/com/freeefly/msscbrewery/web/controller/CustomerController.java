@@ -6,9 +6,13 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.ConstraintViolationException;
+import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/v1/customer")
@@ -22,7 +26,7 @@ public class CustomerController {
 
     // POST - create new beer
     @PostMapping
-    public ResponseEntity handlePost(@RequestBody Customer customer) {
+    public ResponseEntity handlePost(@Validated @RequestBody Customer customer) {
         Customer savedDto = customerService.saveNewCustomer(customer);
         HttpHeaders headers = new HttpHeaders();
         headers.add(HttpHeaders.LOCATION, "http://localhost:8080/api/v1/customer/" + savedDto.getId().toString());
@@ -30,7 +34,7 @@ public class CustomerController {
     }
 
     @PutMapping("/{customerId}")
-    public ResponseEntity handleUpdate(@PathVariable UUID customerId, @RequestBody Customer customer) {
+    public ResponseEntity handleUpdate(@PathVariable UUID customerId, @Validated @RequestBody Customer customer) {
         customerService.updateCustomer(customerId, customer);
         return new ResponseEntity(HttpStatus.NO_CONTENT); // 요청이 성공하였고, 바디는 비었음
     }
