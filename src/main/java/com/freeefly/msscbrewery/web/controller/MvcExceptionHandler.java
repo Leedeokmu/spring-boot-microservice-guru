@@ -21,9 +21,4 @@ public class MvcExceptionHandler {
 
         return new ResponseEntity(errors, HttpStatus.BAD_REQUEST);
     }
-
-    @ExceptionHandler(BindException.class)
-    public ResponseEntity bindingErrorHandler(BindException e) {
-        return new ResponseEntity(e.getAllErrors(), HttpStatus.BAD_REQUEST);
-    }
 }
