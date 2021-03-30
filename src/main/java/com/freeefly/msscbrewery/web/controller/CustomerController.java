@@ -1,7 +1,7 @@
 package com.freeefly.msscbrewery.web.controller;
 
+import com.freeefly.msscbrewery.web.model.CustomerDto;
 import com.freeefly.msscbrewery.web.services.CustomerService;
-import com.freeefly.msscbrewery.web.model.Customer;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -9,10 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.ConstraintViolationException;
-import java.util.List;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/v1/customer")
@@ -20,22 +17,22 @@ import java.util.stream.Collectors;
 public class CustomerController {
     private final CustomerService customerService;
     @GetMapping("/{customerId}")
-    public ResponseEntity<Customer> getCustomer(@PathVariable UUID customerId) {
+    public ResponseEntity<CustomerDto> getCustomer(@PathVariable UUID customerId) {
         return new ResponseEntity<>(customerService.getCustomerById(customerId), HttpStatus.OK);
     }
 
     // POST - create new beer
     @PostMapping
-    public ResponseEntity handlePost(@Validated @RequestBody Customer customer) {
-        Customer savedDto = customerService.saveNewCustomer(customer);
+    public ResponseEntity handlePost(@Validated @RequestBody CustomerDto customerDto) {
+        CustomerDto savedDto = customerService.saveNewCustomer(customerDto);
         HttpHeaders headers = new HttpHeaders();
         headers.add(HttpHeaders.LOCATION, "http://localhost:8080/api/v1/customer/" + savedDto.getId().toString());
         return new ResponseEntity(headers, HttpStatus.CREATED);
     }
 
     @PutMapping("/{customerId}")
-    public ResponseEntity handleUpdate(@PathVariable UUID customerId, @Validated @RequestBody Customer customer) {
-        customerService.updateCustomer(customerId, customer);
+    public ResponseEntity handleUpdate(@PathVariable UUID customerId, @Validated @RequestBody CustomerDto customerDto) {
+        customerService.updateCustomer(customerId, customerDto);
         return new ResponseEntity(HttpStatus.NO_CONTENT); // 요청이 성공하였고, 바디는 비었음
     }
 

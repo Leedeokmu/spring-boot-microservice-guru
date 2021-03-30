@@ -31,11 +31,7 @@ public class BeerController {
 
     // POST - create new beer
     @PostMapping
-    public ResponseEntity saveNewBeer(@Valid @RequestBody BeerDto beerDto, BindingResult bindingResult) {
-        if(bindingResult.hasErrors()){
-            return new ResponseEntity(bindingResult.getAllErrors(), HttpStatus.BAD_REQUEST);
-        }
-
+    public ResponseEntity saveNewBeer(@Valid @RequestBody BeerDto beerDto) {
         return new ResponseEntity(HttpStatus.CREATED);
     }
 

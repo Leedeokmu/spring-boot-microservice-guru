@@ -8,6 +8,11 @@ group = 'com.freeefly'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
+ext{
+    mapStructVersion = "1.4.2.Final"
+    mapStructLombokBindingVersion = "0.2.0"
+}
+
 configurations {
     compileOnly {
         extendsFrom annotationProcessor
@@ -25,11 +30,18 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-validation'
 
     implementation 'com.h2database:h2'
-    compileOnly 'org.projectlombok:lombok'
-    developmentOnly 'org.springframework.boot:spring-boot-devtools'
-    annotationProcessor 'org.projectlombok:lombok'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
+    implementation 'org.projectlombok:lombok'
+    implementation "org.mapstruct:mapstruct:$mapStructVersion"
+    implementation "org.projectlombok:lombok-mapstruct-binding:${mapStructLombokBindingVersion}"
+
+    annotationProcessor 'org.projectlombok:lombok'
+    annotationProcessor "org.mapstruct:mapstruct:$mapStructVersion"
+    annotationProcessor "org.projectlombok:lombok-mapstruct-binding:${mapStructLombokBindingVersion}"
+
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testAnnotationProcessor "org.mapstruct:mapstruct-processor:${mapStructVersion}"
 }
 
 test {

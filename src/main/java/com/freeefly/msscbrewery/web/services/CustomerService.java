@@ -1,15 +1,15 @@
 package com.freeefly.msscbrewery.web.services;
 
-import com.freeefly.msscbrewery.web.model.Customer;
+import com.freeefly.msscbrewery.web.model.CustomerDto;
 
 import java.util.UUID;
 
 public interface CustomerService {
-    Customer getCustomerById(UUID customerId);
+    CustomerDto getCustomerById(UUID customerId);
 
-    Customer saveNewCustomer(Customer customer);
+    CustomerDto saveNewCustomer(CustomerDto customerDto);
 
-    void updateCustomer(UUID customerId, Customer customer);
+    void updateCustomer(UUID customerId, CustomerDto customerDto);
 
     void deleteCustomer(UUID customerId);
 }

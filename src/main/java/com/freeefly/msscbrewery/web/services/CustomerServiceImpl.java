@@ -1,6 +1,6 @@
 package com.freeefly.msscbrewery.web.services;
 
-import com.freeefly.msscbrewery.web.model.Customer;
+import com.freeefly.msscbrewery.web.model.CustomerDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -10,23 +10,23 @@ import java.util.UUID;
 @Service
 public class CustomerServiceImpl implements CustomerService {
     @Override
-    public Customer getCustomerById(UUID customerId) {
-        return Customer.builder()
+    public CustomerDto getCustomerById(UUID customerId) {
+        return CustomerDto.builder()
                 .id(UUID.randomUUID())
                 .name("deokmu lee")
                 .build();
     }
 
     @Override
-    public Customer saveNewCustomer(Customer customer) {
-        return Customer.builder()
+    public CustomerDto saveNewCustomer(CustomerDto customerDto) {
+        return CustomerDto.builder()
                 .id(UUID.randomUUID())
                 .name("new Customer")
                 .build();
     }
 
     @Override
-    public void updateCustomer(UUID customerId, Customer customer) {
+    public void updateCustomer(UUID customerId, CustomerDto customerDto) {
         log.debug("Updating customer...");
         // TODO impl
     }

@@ -1,6 +1,7 @@
 package com.freeefly.msscbrewery.web.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.freeefly.msscbrewery.web.model.BeerStyleEnum;
 import com.freeefly.msscbrewery.web.services.BeerService;
 import com.freeefly.msscbrewery.web.model.BeerDto;
 import org.junit.jupiter.api.Test;
@@ -10,6 +11,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.math.BigDecimal;
 import java.util.UUID;
 
 import static org.hamcrest.Matchers.is;
@@ -35,7 +37,12 @@ class BeerControllerTest {
 
     @Test
     void saveNewBeer() throws Exception {
-        BeerDto beerDto = BeerDto.builder().build();
+        BeerDto beerDto = BeerDto.builder()
+                .beerName("new Beer")
+                .beerStyle(BeerStyleEnum.ALE)
+                .upc(123123789L)
+                .price(new BigDecimal(1100))
+                .build();
         String beerDtoJson = objectMapper.writeValueAsString(beerDto);
 
         mockMvc.perform(post("/api/v1/beer")
@@ -47,7 +54,12 @@ class BeerControllerTest {
 
     @Test
     void updateBeerById() throws Exception{
-        BeerDto beerDto = BeerDto.builder().build();
+        BeerDto beerDto = BeerDto.builder()
+                .beerName("update Beer")
+                .beerStyle(BeerStyleEnum.ALE)
+                .upc(123123789L)
+                .price(new BigDecimal(1100))
+                .build();
         String beerDtoJson = objectMapper.writeValueAsString(beerDto);
 
         mockMvc.perform(put("/api/v1/beer/" + UUID.randomUUID().toString())

@@ -11,7 +11,7 @@ import java.util.UUID;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 @Builder
-public class Customer {
+public class CustomerDto {
     private UUID id;
 
     @NotBlank
