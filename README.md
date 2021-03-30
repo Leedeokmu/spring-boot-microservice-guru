@@ -1,3 +1,5 @@
+[![<CircleCI>](https://circleci.com/gh/circleci/spring-boot-microservice-guru/tree/circleci-project-setup.svg?style=svg)](https://circleci.com/gh/circleci/spring-boot-microservice-guru/tree/circleci-project-setup)
+
 # MSSC Beer Service
 
 ---
