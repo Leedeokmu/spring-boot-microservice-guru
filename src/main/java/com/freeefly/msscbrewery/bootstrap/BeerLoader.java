@@ -31,7 +31,7 @@ public class BeerLoader implements CommandLineRunner {
                     .build());
 
             beerRepository.save(Beer.builder()
-                    .beerName("GAlaxy Cat")
+                    .beerName("Galaxy Cat")
                     .beerStyle("PALE_AXE")
                     .quantityToBrew(200)
                     .minOnHand(12)

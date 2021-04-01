@@ -1,4 +1,4 @@
-[![<CircleCI>](https://circleci.com/gh/Leedeokmu/spring-boot-microservice-guru.svg?style=svg)](https://circleci.com/gh/Leedeokmu/spring-boot-microservice-guru)
+[![<circleci>](https://circleci.com/gh/Leedeokmu/spring-boot-microservice-guru.svg?style=svg)](https://circleci.com/gh/Leedeokmu/spring-boot-microservice-guru)
 
 # MSSC Beer Service
 

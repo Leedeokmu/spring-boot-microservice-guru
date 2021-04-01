@@ -27,7 +27,7 @@ public class Beer {
     @Column(updatable = false)
     private Timestamp createdDate;
     @UpdateTimestamp
-    private Timestamp latsModifiedDate;
+    private Timestamp lastModifiedDate;
     private String beerName;
     private String beerStyle;
     @Column(unique = true)

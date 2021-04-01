@@ -2,6 +2,7 @@ plugins {
     id 'org.springframework.boot' version '2.4.4'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
+    id "org.asciidoctor.convert" version "1.5.9.2"
 }
 
 group = 'com.freeefly'
@@ -11,11 +12,28 @@ sourceCompatibility = '11'
 ext{
     mapStructVersion = "1.4.2.Final"
     mapStructLombokBindingVersion = "0.2.0"
+    snippetsDir = file('build/generated-snippets')
 }
 
 configurations {
     compileOnly {
         extendsFrom annotationProcessor
+    }
+}
+
+test {
+    outputs.dir snippetsDir
+}
+
+asciidoctor {
+    dependsOn test
+    inputs.dir snippetsDir
+}
+
+bootJar {
+    dependsOn asciidoctor
+    from ("${asciidoctor .outputDir}/html5") {
+        into 'static/docs'
     }
 }
 
@@ -32,15 +50,17 @@ dependencies {
     implementation 'com.h2database:h2'
 
     implementation 'org.projectlombok:lombok'
-    implementation "org.mapstruct:mapstruct:$mapStructVersion"
+    implementation "org.mapstruct:mapstruct:${mapStructVersion}"
     implementation "org.projectlombok:lombok-mapstruct-binding:${mapStructLombokBindingVersion}"
 
     annotationProcessor 'org.projectlombok:lombok'
-    annotationProcessor "org.mapstruct:mapstruct:$mapStructVersion"
+    annotationProcessor "org.mapstruct:mapstruct-processor:${mapStructVersion}"
     annotationProcessor "org.projectlombok:lombok-mapstruct-binding:${mapStructLombokBindingVersion}"
 
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    asciidoctor 'org.springframework.restdocs:spring-restdocs-asciidoctor'
+    testCompile 'org.springframework.restdocs:spring-restdocs-mockmvc'
     testAnnotationProcessor "org.mapstruct:mapstruct-processor:${mapStructVersion}"
 }
 
