@@ -1,5 +1,7 @@
 package com.freeefly.msscbrewery.web.model;
 
+import com.freeefly.msscbrewery.bootstrap.BeerLoader;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
@@ -14,7 +16,7 @@ public class BaseTest {
                 .createdDate(OffsetDateTime.now())
                 .lastModifiedDate(OffsetDateTime.now())
                 .price(new BigDecimal("12.99"))
-                .upc(312412413136L)
+                .upc(BeerLoader.BEER_1_UPC)
                 .myLocalDate(LocalDate.now())
                 .build();
 

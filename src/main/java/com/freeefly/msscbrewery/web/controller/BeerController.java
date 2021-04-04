@@ -1,8 +1,6 @@
 package com.freeefly.msscbrewery.web.controller;
 
-import com.freeefly.msscbrewery.repositories.BeerRepository;
 import com.freeefly.msscbrewery.services.BeerService;
-import com.freeefly.msscbrewery.web.mappers.BeerMapper;
 import com.freeefly.msscbrewery.web.model.BeerDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -18,8 +16,6 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/api/v1/beer")
 public class BeerController {
-    private final BeerMapper beerMapper;
-    private final BeerRepository beerRepository;
     private final BeerService beerService;
 
     @GetMapping("/{beerId}")

@@ -1,7 +1,7 @@
 package com.freeefly.msscbrewery.web.controller;
 
+import com.freeefly.msscbrewery.services.CustomerService;
 import com.freeefly.msscbrewery.web.model.CustomerDto;
-import com.freeefly.msscbrewery.web.services.CustomerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

@@ -1,4 +1,4 @@
-package com.freeefly.msscbrewery.web.services;
+package com.freeefly.msscbrewery.services;
 
 import com.freeefly.msscbrewery.web.model.CustomerDto;
 import lombok.extern.slf4j.Slf4j;

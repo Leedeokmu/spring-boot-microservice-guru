@@ -37,9 +37,8 @@ public class BeerDto {
     @NotNull
     private BeerStyleEnum beerStyle;
 
-    @NotNull
-    @Positive
-    private Long upc; // 범용 상품 부호(Universal Product Code)
+    @NotBlank
+    private String upc; // 범용 상품 부호(Universal Product Code)
 
     @NotNull
     @Positive
